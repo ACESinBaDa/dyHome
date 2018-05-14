@@ -7,3 +7,9 @@ body, html
 /* 按钮组 */
 .mouse
   border-radius 10px
+.move
+  transition all 1s cubic-bezier(0.86, 0, 0.5, 1)
+.slide-up-enter, .slide-down-leave-active
+  transform translateY(100%)
+.slide-up-leave-active, .slide-down-enter
+  transform translateY(-100%)

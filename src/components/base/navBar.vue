@@ -4,33 +4,17 @@
       <img class="dy" src="" alt="">
     </div>
     <ul class="navTab">
-      <li v-for="(item, index) in navArr" :key="index" @click="goWhere(item.route)" :class="{'active': $router.name==item.route}">{{ item.name }}</li>
+      <li v-for="(item, index) in navArr" :key="index" @click="goWhere(item.route)" :class="{'active': $route.name==item.route}">{{ item.name }}</li>
     </ul>
   </div>
 </template>
 <script type="text/ecmascript-6">
+import { NavArr } from '../../assets/js/common'
 export default {
   name: 'navBar',
   data () {
     return {
-      navArr: [
-        {
-          name: '电商与新零售',
-          route: 'newRetail'
-        },
-        {
-          name: '关于大院',
-          route: 'about'
-        },
-        {
-          name: '大院态度',
-          route: 'attitude'
-        },
-        {
-          name: '加入大院',
-          route: 'joinUs'
-        }
-      ]
+      navArr: NavArr
     }
   },
   methods: {

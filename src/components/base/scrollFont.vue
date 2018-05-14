@@ -7,7 +7,7 @@
 </template>
 <script type="text/ecmascript-6">
 export default {
-  name: 'component_name',
+  name: 'scrollFont',
   data () {
     return {
     }
@@ -23,6 +23,9 @@ export default {
 @import '../../assets/stylus/index'
 .scrollFont
   color #ffffff
+  display flex
+  flex-direction column
+  justify-content center
   h1
     position relative
     font-size 60px

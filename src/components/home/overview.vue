@@ -1,6 +1,6 @@
 <template>
-  <div class="overview" @mousewheel="scroll">
-    <scroll-font :textArr="textArr"></scroll-font>
+  <div class="overview">
+    <!-- <scroll-font :textArr="textArr"></scroll-font> -->
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -21,7 +21,9 @@ export default {
   },
   methods: {
     scroll (e) {
-      console.log(e)
+      if (e.wheelDeltaY < 0) {
+        this.$router.push({ name: 'newRetail' })
+      }
     }
   }
 }
@@ -32,7 +34,8 @@ export default {
   height 100%
   display flex
   flex-direction column
-  align-content center
+  align-items flex-start
+  // align-content flex-start
   justify-content center
   color #ffffff
 </style>
