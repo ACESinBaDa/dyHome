@@ -1,43 +1,36 @@
 <template>
-  <div class="rectBase">
-    <!-- <img src="http://image.tianjimedia.com/uploadImages/2013/221/U23HO054376Q.jpg" alt=""> -->
+  <div class="rectBase" :style="'background:url(' + imgUrl + ') no-repeat;background-size:100% 100%;'">
     <ul class="list">
-      <li>
-        <i></i>
+      <li v-for="(item, index) in info" :key="index">
+        <i class="item.icon"></i>
         <span>
-          <em>新零售</em>
+          <em>{{ item.tip[0] }}</em>
           <br />
-          <em>补充性小字文案</em>
-        </span>
-      </li>
-      <li>
-        <i></i>
-        <span>
-          <em>人工智能</em>
-          <br />
-          <em>补充性小字文案</em>
-        </span>
-      </li>
-      <li>
-        <i></i>
-        <span>
-          <em>电商服务</em>
-          <br />
-          <em>补充性小字文案</em>
+          <em>{{ item.tip[1] }}</em>
         </span>
       </li>
     </ul>
   </div>
 </template>
 <script type="text/ecmascript-6">
+import { ContArr } from '../../assets/js/common.js'
 export default {
   name: 'rectBase',
   data () {
     return {
+      info: []
     }
   },
-  props: {
-
+  computed: {
+    imgUrl () {
+      let url = ''
+      let routeName = this.$route.name
+      url = ContArr[routeName].url
+      return url
+    }
+  },
+  created () {
+    this.info = ContArr[this.$route.name].infoArr
   }
 }
 </script>
@@ -50,9 +43,7 @@ export default {
   left 0
   right 0
   margin 0 auto
-  // background pink
-  background url('http://image.tianjimedia.com/uploadImages/2013/221/U23HO054376Q.jpg')
-  background-position center
+  background-size 100% 100%
   img
     position absolute
     top 0
@@ -88,4 +79,6 @@ export default {
           font-size 14px
           color #ffffff
           line-height 40px
+          display inline-block
+          width 100px
 </style>

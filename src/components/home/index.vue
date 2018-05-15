@@ -5,7 +5,7 @@
     </header>
     <section @mousewheel="timeOut">
       <div class="top">
-        <scroll-font class="font" :textArr="textArr"></scroll-font>
+        <scroll-font class="font" :textArr="titleArr[$route.name]"></scroll-font>
         <navLine class="lines" v-if="$route.name!='overview'"></navLine>
       </div>
       <mouse class="mouse"></mouse>
@@ -26,6 +26,7 @@ import NavBar from '../base/navBar'
 import Foot from '../base/foot'
 import Mouse from '../base/mouse'
 import NavLine from '../base/navLine'
+import { NavTitle } from '../../assets/js/common.js'
 export default {
   name: 'home',
   components: {
@@ -38,12 +39,8 @@ export default {
   data () {
     return {
       slideName: 'slide-up',
-      time: '',
-      textArr: [
-        '数据科技智能让生活更美好',
-        'Data technology',
-        'intelligence makes life better'
-      ]
+      titleArr: NavTitle,
+      time: ''
     }
   },
   methods: {
